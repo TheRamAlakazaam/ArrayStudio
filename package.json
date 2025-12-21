@@ -1,0 +1,27 @@
+{
+  "name": "arraystudio",
+  "version": "1.0.0",
+  "description": "Website for Public Art Company in Houston, Texas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astrp preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRamAlakazaam/ArrayStudio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheRamAlakazaam/ArrayStudio/issues"
+  },
+  "homepage": "https://github.com/TheRamAlakazaam/ArrayStudio#readme",
+  "dependencies": {
+    "astro": "^5.16.6"
+  }
+  
+}
