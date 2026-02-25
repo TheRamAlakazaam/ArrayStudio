@@ -1,0 +1,24 @@
+---
+const clients = [
+  "Client One",
+  "Client Two",
+  "Client Three",
+  "Client Four",
+  "Client Five",
+];
+---
+
+<div class="bg-cream flex items-center gap-12 px-12 py-8 border-b border-light-gray">
+  <span class="font-mono text-[10px] tracking-[0.25em] uppercase text-mid-gray whitespace-nowrap shrink-0">
+    Work with —
+  </span>
+  <div class="flex gap-12 items-center overflow-hidden">
+    {
+      clients.map((client) => (
+        <span class="font-bebas text-[20px] tracking-[0.1em] text-mid-gray opacity-60 hover:opacity-100 transition-opacity duration-200 whitespace-nowrap cursor-default">
+          {client}
+        </span>
+      ))
+    }
+  </div>
+</div>

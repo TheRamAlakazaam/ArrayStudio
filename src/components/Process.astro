@@ -1,0 +1,54 @@
+---
+const steps = [
+  {
+    num: "01",
+    name: "The Discovery",
+    body: "We get on a call and dig into your brand, your goals, and who you're trying to reach. No intake forms. No questionnaires. Just a real conversation that shapes everything that follows.",
+  },
+  {
+    num: "02",
+    name: "The Blueprint",
+    body: "We put together a creative brief and production plan tailored to your scope. You know exactly what we're making, when you'll have it, and what it'll cost before we shoot a single frame.",
+  },
+  {
+    num: "03",
+    name: "The Production",
+    body: "We get to work. On set, in post, and at the design table — all with the same level of obsession. You don't need to micromanage us. That's not what you're paying for.",
+  },
+  {
+    num: "04",
+    name: "The Delivery",
+    body: "We present the work. If you want changes, we make them fast. We won't ghost you at the finish line. You leave with assets ready to deploy and a brand that finally looks the part.",
+  },
+];
+---
+
+<section id="process" class="bg-cream px-12 py-[140px]">
+
+  <div class="text-center mb-24">
+    <p class="font-mono text-[10px] tracking-[0.3em] uppercase text-red mb-6">
+      // How it works
+    </p>
+    <h2 class="font-playfair text-[clamp(44px,5vw,80px)] font-black leading-none text-black max-w-[700px] mx-auto">
+      Simple process. <em class="italic text-mid-gray">Serious</em> results.
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-4 gap-[2px]">
+    {
+      steps.map((step) => (
+        <div class="reveal group border border-light-gray bg-warm-white px-9 py-14 hover:bg-black transition-all duration-200 cursor-default">
+          <div class="font-bebas text-[64px] text-black/[0.08] group-hover:text-gold leading-none mb-6 transition-colors duration-200">
+            {step.num}
+          </div>
+          <h3 class="font-playfair text-[22px] font-bold text-black group-hover:text-cream mb-4 transition-colors duration-200">
+            {step.name}
+          </h3>
+          <p class="font-mono text-[12px] leading-[1.9] text-mid-gray group-hover:text-cream/50 transition-colors duration-200">
+            {step.body}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

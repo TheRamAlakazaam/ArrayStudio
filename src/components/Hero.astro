@@ -1,0 +1,41 @@
+---
+const tickerItems = [
+  "Videography", "Brand Photography", "Graphic Design",
+  "Brand Strategy", "Visual Identity", "Marketing",
+];
+// Duplicate for seamless loop
+const allItems = [...tickerItems, ...tickerItems];
+---
+
+<section class="relative bg-black min-h-screen flex flex-col justify-end px-12 pb-20 overflow-hidden">
+
+  
+
+  <!-- Huge background letter -->
+  <div class="absolute right-[-40px] top-1/2 -translate-y-1/2 font-bebas text-[28vw] text-white/[0.025] leading-none pointer-events-none select-none">
+    A
+  </div>
+
+  <!-- Content -->
+  <p class="animate-fade-up-1 font-mono text-[11px] tracking-[0.25em] uppercase text-gold mb-6">
+    Houston, TX — Est. 2024
+  </p>
+
+  <h1 class="animate-fade-up-2 font-playfair text-[clamp(64px,9vw,140px)] font-black leading-[0.92] text-cream max-w-[1000px] mb-12">
+    We make brands <em class="italic text-gold">impossible</em> to ignore.
+  </h1>
+
+  <div class="animate-fade-up-3 flex items-end justify-between gap-12">
+    <p class="font-mono text-[13px] leading-[1.8] text-cream/65 max-w-[420px]">
+      Array Studio is a full-service creative studio specializing in videography,
+      photography, and brand strategy. We don't just make things look good —
+      we make people feel something.
+    </p>
+    <a
+      href="mailto:hello@arraystudio.com"
+      class="inline-block bg-red text-cream font-mono text-[12px] tracking-[0.2em] uppercase no-underline px-10 py-[18px] hover:bg-gold hover:text-black transition-all duration-200 whitespace-nowrap shrink-0"
+    >
+      Let's Build Something →
+    </a>
+  </div>
+</section>

@@ -1,0 +1,70 @@
+---
+const stats = [
+  { num: "100%", label: "Original work,\nevery time" },
+  { num: "3",    label: "Core disciplines\nunder one roof" },
+  { num: "∞",   label: "Revisions until\nit's right" },
+  { num: "0",    label: "Templates.\nEver." },
+];
+---
+
+<section id="story" class="grid grid-cols-2 min-h-screen">
+
+  <!-- Left: text -->
+  <div class="px-12 py-[120px] pr-20 border-r border-light-gray flex flex-col justify-center">
+    <p class="font-mono text-[10px] tracking-[0.3em] uppercase text-red mb-10">
+      // A note from the founder
+    </p>
+
+    <h2 class="font-playfair text-[clamp(36px,4vw,60px)] font-bold leading-[1.1] text-black mb-9">
+      We don't do <em class="italic text-mid-gray">average.</em><br />
+      Neither do you.
+    </h2>
+
+    <div class="font-mono text-[13px] leading-[2] text-mid-gray max-w-[480px] space-y-5">
+      <p>
+        Most brands are invisible. Not because they're bad — but because they look like
+        everyone else. They hired the cheapest option, settled for stock photos, and
+        called it marketing.
+      </p>
+      <p>
+        We built Array Studio for brands that refuse to blend in. Whether you're launching
+        something new or reinventing what you've got, we bring the visual firepower to make
+        your audience stop scrolling and start paying attention.
+      </p>
+      <p>
+        We're a tight-knit crew — videographers, photographers, and a graphic designer who
+        thinks in systems. We work with you like a partner, not a vendor.
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <p class="font-playfair italic text-[18px] text-black">[Your Name]</p>
+      <p class="font-mono text-[10px] tracking-[0.2em] uppercase text-mid-gray mt-1">
+        Founder, Array Studio
+      </p>
+    </div>
+  </div>
+
+  <!-- Right: stats on black -->
+  <div class="bg-black flex flex-col justify-center items-center px-20 py-20 relative overflow-hidden">
+    <!-- BG word -->
+    <div class="absolute font-bebas text-[clamp(80px,12vw,180px)] text-white/[0.05] leading-none pointer-events-none select-none">
+      ARRAY
+    </div>
+
+    <div class="grid grid-cols-2 gap-[2px] w-full relative z-10">
+      {
+        stats.map((stat) => (
+          <div class="reveal bg-white/[0.04] border border-white/[0.06] px-9 py-12 hover:bg-gold/[0.08] transition-colors duration-200">
+            <div class="font-playfair text-[56px] font-black text-gold leading-none mb-2">
+              {stat.num}
+            </div>
+            <div class="font-mono text-[11px] tracking-[0.15em] uppercase text-cream/45 whitespace-pre-line">
+              {stat.label}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

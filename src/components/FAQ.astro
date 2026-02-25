@@ -1,0 +1,78 @@
+---
+const faqs = [
+  {
+    q: "What does this normally cost?",
+    a: "Every project is scoped based on what you actually need — not a one-size-fits-all package. Projects range from targeted single-deliverable shoots to full brand production engagements. We'll give you a clear number after a discovery call, with no surprises.",
+  },
+  {
+    q: "How long does a project take?",
+    a: "Most photography and design projects turn around within 1–2 weeks of the shoot or kick-off. Video projects, depending on scope, typically run 2–4 weeks from production to final delivery. We move fast without cutting corners.",
+  },
+  {
+    q: "Do you work with small businesses or only big brands?",
+    a: "We work with businesses that are serious about their brand — regardless of size. Some of our best work has been with scrappy startups that had big vision and were ready to invest in looking the part. If that's you, we should talk.",
+  },
+  {
+    q: "What if I don't know exactly what I need?",
+    a: "That's what the discovery call is for. You don't need to walk in with a complete brief — you just need to know you're ready to level up. We'll help you figure out the rest.",
+  },
+  {
+    q: "Are revisions included?",
+    a: "Yes. We build revision rounds into every project. We'd rather get it exactly right than hand you something you're lukewarm about. We don't disappear after delivery — we stick around until you're proud of what you have.",
+  },
+];
+---
+
+<section id="faq" class="bg-warm-white px-12 py-[140px]">
+  <div class="max-w-[900px] mx-auto">
+    <p class="font-mono text-[10px] tracking-[0.3em] uppercase text-red mb-6 text-center">
+      // FAQ
+    </p>
+    <h2 class="font-playfair text-[clamp(40px,4vw,64px)] font-black text-black leading-[1.1] mb-20 text-center">
+      Questions you're<br /><em class="italic text-mid-gray">probably</em> thinking.
+    </h2>
+
+    <div class="space-y-0">
+      {
+        faqs.map((faq, i) => (
+          <div class="faq-item border-t border-light-gray last:border-b last:border-light-gray py-8 cursor-pointer">
+            <div class="faq-trigger flex justify-between items-center gap-6">
+              <h3 class="font-playfair text-[20px] font-bold text-black">
+                {faq.q}
+              </h3>
+              <span class="faq-icon font-mono text-[20px] text-red shrink-0 transition-transform duration-200">
+                +
+              </span>
+            </div>
+            <div class="faq-answer font-mono text-[13px] leading-[2] text-mid-gray max-h-0 overflow-hidden transition-all duration-400">
+              <p class="pt-5">{faq.a}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    item.querySelector(".faq-trigger")!.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      // Close all
+      document.querySelectorAll(".faq-item").forEach((el) => {
+        el.classList.remove("open");
+        (el.querySelector(".faq-answer") as HTMLElement).style.maxHeight = "0px";
+        (el.querySelector(".faq-icon") as HTMLElement).style.transform = "rotate(0deg)";
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add("open");
+        const answer = item.querySelector(".faq-answer") as HTMLElement;
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        (item.querySelector(".faq-icon") as HTMLElement).style.transform = "rotate(45deg)";
+      }
+    });
+  });
+</script>

@@ -1,0 +1,73 @@
+---
+const services = [
+  {
+    num: "01",
+    name: "Brand Videography",
+    desc: "Cinematic brand films, product videos, event coverage, and social content that moves people — literally and emotionally. We make your brand feel alive on screen.",
+  },
+  {
+    num: "02",
+    name: "Brand Photography",
+    desc: "Product, portrait, and editorial photography that gives your brand a visual language worth owning. No stock photos. No generic shots. Just images that do the selling for you.",
+  },
+  {
+    num: "03",
+    name: "Graphic Design",
+    desc: "Logos, brand systems, marketing collateral, and visual identities built to scale. Our designer doesn't decorate — they solve problems with visuals that communicate instantly.",
+  },
+  {
+    num: "04",
+    name: "Brand Strategy",
+    desc: "Before we pick up a camera or open a file, we get inside your brand's head. Positioning, messaging, and visual direction that gives everything else its spine.",
+  },
+  {
+    num: "05",
+    name: "Social Content",
+    desc: "Scroll-stopping reels, stories, and content series built for the platforms your customers actually live on. Consistent, on-brand, and built to grow.",
+  },
+  {
+    num: "06",
+    name: "Campaign Production",
+    desc: "Full end-to-end campaign production — concept to delivery. When you need everything to hit at once, we coordinate every visual element to land with maximum impact.",
+  },
+];
+---
+
+<section id="services" class="bg-black px-12 py-[140px]">
+
+  <div class="flex items-start justify-between mb-24 gap-12">
+    <div>
+      <p class="font-mono text-[10px] tracking-[0.3em] uppercase text-gold mb-6">
+        // What we do
+      </p>
+      <h2 class="font-playfair text-[clamp(48px,6vw,90px)] font-black text-cream leading-[0.95]">
+        The full<br /><em class="italic text-gold">arsenal.</em>
+      </h2>
+    </div>
+    <p class="font-mono text-[13px] leading-[2] text-cream/50 max-w-[380px] mt-auto pt-16">
+      Everything your brand needs to look like it belongs at the top — from the hero
+      video on your homepage to the photos that make people stop mid-scroll.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-3 gap-[2px]">
+    {
+      services.map((s) => (
+        <div class="reveal group border border-white/[0.07] px-10 py-14 hover:bg-white/[0.03] transition-colors duration-300 relative overflow-hidden cursor-default">
+          <!-- Bottom accent line -->
+          <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+
+          <p class="font-mono text-[10px] tracking-[0.3em] uppercase text-red mb-6">
+            {s.num} /
+          </p>
+          <h3 class="font-playfair text-[28px] font-bold text-cream mb-4 leading-[1.2]">
+            {s.name}
+          </h3>
+          <p class="font-mono text-[12px] leading-[1.9] text-cream/45">
+            {s.desc}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>
