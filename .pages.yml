@@ -1,0 +1,167 @@
+media:
+  input: src/assets/uploads
+  output: /src/assets/uploads
+  categories: [image]
+  rename: true
+
+content:
+  - name: home_page
+    label: Home Page
+    type: file
+    path: src/content/pages/home.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: text
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: intro
+        label: Intro
+        type: text
+      - name: seoTitle
+        label: SEO Title
+        type: string
+      - name: seoDescription
+        label: SEO Description
+        type: text
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: about_page
+    label: About Page
+    type: file
+    path: src/content/pages/about.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: text
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: intro
+        label: Intro
+        type: text
+      - name: seoTitle
+        label: SEO Title
+        type: string
+      - name: seoDescription
+        label: SEO Description
+        type: text
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: services_page
+    label: Services Page
+    type: file
+    path: src/content/pages/services.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: text
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: intro
+        label: Intro
+        type: text
+      - name: seoTitle
+        label: SEO Title
+        type: string
+      - name: seoDescription
+        label: SEO Description
+        type: text
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: work_page
+    label: Work Page
+    type: file
+    path: src/content/pages/work.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: text
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: intro
+        label: Intro
+        type: text
+      - name: seoTitle
+        label: SEO Title
+        type: string
+      - name: seoDescription
+        label: SEO Description
+        type: text
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: contact_page
+    label: Contact Page
+    type: file
+    path: src/content/pages/contact.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: text
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: intro
+        label: Intro
+        type: text
+      - name: seoTitle
+        label: SEO Title
+        type: string
+      - name: seoDescription
+        label: SEO Description
+        type: text
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: blog
+    label: Blog
+    type: collection
+    path: src/content/blog
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    subfolders: false
+    fields:
+      - name: title
+        label: Title
+        type: text
+      - name: description
+        label: Description
+        type: text
+      - name: category
+        label: Category
+        type: string
+      - name: author
+        label: Author
+        type: string
+      - name: publishDate
+        label: Publish Date
+        type: date
+      - name: draft
+        label: Draft
+        type: boolean
+      - name: coverImage
+        label: Cover Image
+        type: image
+      - name: body
+        label: Body
+        type: rich-text
+
+settings:
+  hide: true

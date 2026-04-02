@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import CTA from "../../components/CTA.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
+---
+
+<Layout
+  title="Array Studio Blog"
+  description="Thoughts from Array Studio on public art, placemaking, storytelling, and impact-led marketing."
+>
+  <PageHero
+    eyebrow="Blog"
+    title="Ideas on public art, storytelling, placemaking, and campaign momentum."
+    intro="A blog structure you can keep expanding in Pages CMS as the agency voice grows."
+  />
+
+  <section class="mx-auto max-w-[1440px] px-6 py-12 md:px-10 lg:px-12 lg:py-14">
+    <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+      {
+        posts.map((post) => (
+          <BlogCard
+            href={`/blog/${post.slug}/`}
+            category={post.data.category}
+            title={post.data.title}
+            description={post.data.description}
+            publishDate={post.data.publishDate.toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <CTA
+    eyebrow="Keep the voice active"
+    title="The blog is now part of the site structure, so you can grow authority instead of hiding ideas on social."
+    intro="Pages CMS can manage these posts directly from the repo, which means the editorial workflow stays simple and the content stays yours."
+  />
+</Layout>

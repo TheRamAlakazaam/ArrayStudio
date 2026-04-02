@@ -1,0 +1,58 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import CTA from "../components/CTA.astro";
+
+const page = await getEntry("pages", "about");
+
+if (!page) {
+  throw new Error("Missing about page content entry.");
+}
+
+const { Content } = await render(page);
+
+const values = [
+  {
+    title: "Culture-aware",
+    copy: "We pay attention to how people actually talk, gather, and make meaning, not just how brands want to present themselves.",
+  },
+  {
+    title: "Systems-minded",
+    copy: "The strongest campaigns hold together across decks, social, press, signage, launch events, and community touchpoints.",
+  },
+  {
+    title: "Built for the real world",
+    copy: "Our work is meant to survive approvals, timelines, stakeholders, and the messy conditions of public-facing launches.",
+  },
+];
+---
+
+<Layout title={page.data.seoTitle} description={page.data.seoDescription}>
+  <PageHero eyebrow={page.data.eyebrow} title={page.data.title} intro={page.data.intro} />
+
+  <section class="mx-auto grid max-w-[1440px] gap-6 px-6 py-12 md:px-10 lg:grid-cols-[1fr_1fr] lg:px-12 lg:py-14">
+    <div class="content-panel prose-content p-5 md:p-6">
+      <Content />
+    </div>
+
+    <div class="grid gap-3">
+      {
+        values.map((value) => (
+          <div class="content-panel-dark p-5 text-white md:p-6">
+            <h2 class="font-bebas text-[36px] font-bold leading-[0.98] tracking-[-0.05em] text-white">
+              {value.title}
+            </h2>
+            <p class="mt-4 font-mono text-[13px] leading-[1.9] text-white/68">{value.copy}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <CTA
+    eyebrow="Need the outside view?"
+    title="Bring us in when the work needs a sharper strategy and a stronger public-facing story."
+    intro="We can help clarify the idea, shape the rollout, and build the creative system that keeps everything moving in one direction."
+  />
+</Layout>

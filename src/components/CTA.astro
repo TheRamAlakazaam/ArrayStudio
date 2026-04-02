@@ -1,26 +1,78 @@
 ---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  eyebrow = "Ready for the next move",
+  title = "Bring us in when the work needs clarity, energy, and a plan people can actually follow.",
+  intro = "Array Studio partners with teams that need more than content production. We help shape the idea, build the campaign, and carry it all the way into the world.",
+  primaryLabel = "Start a Project",
+  primaryHref = "/contact/",
+  secondaryLabel = "Read the Blog",
+  secondaryHref = "/blog/",
+} = Astro.props;
 ---
 
-<section class="bg-black px-12 py-[160px] text-center relative overflow-hidden">
-  <!-- BG letter -->
-  <div class="absolute inset-0 flex items-center justify-center font-bebas text-[35vw] text-white/[0.02] pointer-events-none select-none leading-none">
-    A
+<section class="relative overflow-hidden border-t border-white/8 bg-black text-white">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_left,rgba(135,206,235,0.12),transparent_42%)]"></div>
   </div>
 
-  <p class="relative z-10 font-mono text-[11px] tracking-[0.3em] uppercase text-gold mb-8">
-    // Ready when you are
-  </p>
-  <h2 class="relative z-10 font-playfair text-[clamp(52px,8vw,120px)] font-black text-cream leading-[0.95] mb-12">
-    Let's make<br />something <em class="italic text-gold">real.</em>
-  </h2>
-  <p class="relative z-10 font-mono text-[14px] leading-[1.9] text-cream/50 max-w-[500px] mx-auto mb-14">
-    If you're tired of looking like everyone else in your industry, you're in the
-    right place. Reach out and let's figure out what Array Studio can do for your brand.
-  </p>
-  <a
-    href="mailto:hello@arraystudio.com"
-    class="relative z-10 inline-block bg-red text-cream font-mono text-[13px] tracking-[0.2em] uppercase no-underline px-14 py-[22px] hover:bg-gold hover:text-black transition-all duration-200"
-  >
-    Start the Conversation →
-  </a>
+  <div class="relative mx-auto max-w-[1440px] px-6 py-12 md:px-10 md:py-14 lg:px-12 lg:py-16">
+    <div class="content-panel-dark grid gap-6 px-6 py-8 md:px-8 md:py-9 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-[0.28em] text-[#87ceeb]">{eyebrow}</p>
+        <h2 class="display-title mt-4 max-w-[16ch] text-[clamp(30px,4.2vw,52px)] text-white">
+          {title}
+        </h2>
+        <p class="max-w-[38rem] font-mono text-[14px] leading-[1.95] text-white/68">{intro}</p>
+      </div>
+
+      <div class="rounded-[1.1rem] border border-white/10 bg-white/[0.04] p-5">
+        <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/42">How we plug in</p>
+        <div class="mt-4 space-y-3">
+          <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-3">
+            <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-white/52">01</p>
+            <p class="max-w-[24rem] text-right font-mono text-[13px] leading-[1.8] text-white/76">
+              Sharpen the strategy and define the public-facing narrative.
+            </p>
+          </div>
+          <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-3">
+            <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-white/52">02</p>
+            <p class="max-w-[24rem] text-right font-mono text-[13px] leading-[1.8] text-white/76">
+              Build the creative system, content, and rollout plan.
+            </p>
+          </div>
+          <div class="flex items-start justify-between gap-4">
+            <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-white/52">03</p>
+            <p class="max-w-[24rem] text-right font-mono text-[13px] leading-[1.8] text-white/76">
+              Help the launch carry farther once it goes public.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={primaryHref}
+            class="inline-flex items-center justify-center rounded-full bg-[#ff6b4a] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white no-underline transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            {primaryLabel}
+          </a>
+          <a
+            href={secondaryHref}
+            class="inline-flex items-center justify-center rounded-full border border-white/16 bg-white/6 px-7 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white no-underline transition-colors duration-200 hover:bg-white/10"
+          >
+            {secondaryLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

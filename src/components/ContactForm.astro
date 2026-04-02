@@ -1,0 +1,71 @@
+---
+const endpoint = "/api/contact";
+---
+
+<form action={endpoint} method="POST" class="content-panel grid gap-4 p-5 md:p-6">
+  <div class="grid gap-4 md:grid-cols-2">
+    <label class="block">
+      <span class="font-mono text-[10px] uppercase tracking-[0.24em] text-black/44">Name</span>
+      <input
+        type="text"
+        name="name"
+        required
+        class="mt-2 w-full rounded-2xl border border-black/10 bg-warm-white px-4 py-3 font-mono text-[14px] text-black outline-none transition-colors duration-200 focus:border-[#ff6b4a]"
+      />
+    </label>
+
+    <label class="block">
+      <span class="font-mono text-[10px] uppercase tracking-[0.24em] text-black/44">Email</span>
+      <input
+        type="email"
+        name="email"
+        required
+        class="mt-2 w-full rounded-2xl border border-black/10 bg-warm-white px-4 py-3 font-mono text-[14px] text-black outline-none transition-colors duration-200 focus:border-[#ff6b4a]"
+      />
+    </label>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2">
+    <label class="block">
+      <span class="font-mono text-[10px] uppercase tracking-[0.24em] text-black/44">Organization</span>
+      <input
+        type="text"
+        name="organization"
+        class="mt-2 w-full rounded-2xl border border-black/10 bg-warm-white px-4 py-3 font-mono text-[14px] text-black outline-none transition-colors duration-200 focus:border-[#ff6b4a]"
+      />
+    </label>
+
+    <label class="block">
+      <span class="font-mono text-[10px] uppercase tracking-[0.24em] text-black/44">Budget Range</span>
+      <select
+        name="budget"
+        class="mt-2 w-full rounded-2xl border border-black/10 bg-warm-white px-4 py-3 font-mono text-[14px] text-black outline-none transition-colors duration-200 focus:border-[#ff6b4a]"
+      >
+        <option value="">Select one</option>
+        <option>Under $10k</option>
+        <option>$10k - $25k</option>
+        <option>$25k - $50k</option>
+        <option>$50k+</option>
+      </select>
+    </label>
+  </div>
+
+  <label class="block">
+    <span class="font-mono text-[10px] uppercase tracking-[0.24em] text-black/44">What are we helping you launch?</span>
+    <textarea
+      name="message"
+      rows="7"
+      required
+      class="mt-2 w-full rounded-[24px] border border-black/10 bg-warm-white px-4 py-4 font-mono text-[14px] leading-[1.8] text-black outline-none transition-colors duration-200 focus:border-[#ff6b4a]"
+    ></textarea>
+  </label>
+
+  <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="hidden" />
+
+  <button
+    type="submit"
+    class="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white transition-transform duration-200 hover:-translate-y-0.5"
+  >
+    Send Inquiry
+  </button>
+</form>

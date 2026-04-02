@@ -1,0 +1,55 @@
+---
+const links = [
+  { label: "About", href: "/about/" },
+  { label: "Services", href: "/services/" },
+  { label: "Work", href: "/work/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Contact", href: "/contact/" },
+];
+---
+
+<footer class="relative overflow-hidden border-t border-black/8 bg-[#0d1820] text-white">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_bottom_left,rgba(135,206,235,0.14),transparent_38%)]"></div>
+  </div>
+
+  <div class="relative mx-auto grid max-w-[1440px] gap-8 px-6 py-10 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:px-10 lg:px-12">
+    <div>
+      <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-[#87ceeb]">Array Studio</p>
+      <p class="mt-3 font-bebas text-[38px] font-bold tracking-[-0.05em] text-white">Array Studio</p>
+      <p class="mt-4 max-w-[34rem] font-mono text-[13px] leading-[1.9] text-white/62">
+        Full-service marketing agency for public programs, places, and impact-led brands.
+        We grow public programs and connect communities through storytelling.
+      </p>
+    </div>
+
+    <div>
+      <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">Pages</p>
+      <div class="mt-4 flex flex-col gap-3">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="font-mono text-[12px] uppercase tracking-[0.18em] text-white/72 no-underline transition-colors duration-200 hover:text-white"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <div>
+      <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">Contact</p>
+      <div class="mt-4 space-y-3 font-mono text-[13px] leading-[1.9] text-white/72">
+        <p>Houston, Texas</p>
+        <p>
+          <a href="mailto:hello@arraystudio.com" class="text-white no-underline hover:text-[#87ceeb]">
+            hello@arraystudio.com
+          </a>
+        </p>
+        <p>Available for strategy, launches, content, and community-facing campaigns.</p>
+      </div>
+    </div>
+  </div>
+</footer>

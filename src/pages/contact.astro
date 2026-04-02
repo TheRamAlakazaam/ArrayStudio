@@ -1,0 +1,56 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+const page = await getEntry("pages", "contact");
+
+if (!page) {
+  throw new Error("Missing contact page content entry.");
+}
+
+const { Content } = await render(page);
+
+const sent = Astro.url.searchParams.get("sent");
+const error = Astro.url.searchParams.get("error");
+---
+
+<Layout title={page.data.seoTitle} description={page.data.seoDescription}>
+  <PageHero eyebrow={page.data.eyebrow} title={page.data.title} intro={page.data.intro} />
+
+  <section class="mx-auto grid max-w-[1440px] gap-6 px-6 py-12 md:px-10 lg:grid-cols-[0.8fr_1.2fr] lg:px-12 lg:py-14">
+    <div class="space-y-4">
+      <div class="content-panel prose-content p-5 md:p-6">
+        <Content />
+      </div>
+
+      <div class="content-panel-dark p-5 text-white md:p-6">
+        <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">What to expect</p>
+        <p class="mt-4 font-mono text-[13px] leading-[1.95] text-white/68">
+          Share the scope, timeline, and what is feeling unclear. We will use that to guide the first conversation and
+          tell you where we can create the most lift.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      {
+        sent && (
+          <div class="rounded-[24px] border border-[#2d9cdb]/20 bg-[#2d9cdb]/10 px-5 py-4 font-mono text-[13px] text-[#1f6c98]">
+            Your inquiry was sent. We will be in touch soon.
+          </div>
+        )
+      }
+      {
+        error && (
+          <div class="rounded-[24px] border border-[#ff6b4a]/20 bg-[#ff6b4a]/10 px-5 py-4 font-mono text-[13px] text-[#a23f29]">
+            The form could not be sent just yet. Please email hello@arraystudio.com while we finish the mail configuration.
+          </div>
+        )
+      }
+
+      <ContactForm />
+    </div>
+  </section>
+</Layout>

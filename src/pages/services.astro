@@ -1,0 +1,77 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import CTA from "../components/CTA.astro";
+
+const page = await getEntry("pages", "services");
+
+if (!page) {
+  throw new Error("Missing services page content entry.");
+}
+
+const { Content } = await render(page);
+
+const services = [
+  {
+    number: "01",
+    title: "Brand and Positioning",
+    copy: "Naming, messaging, narrative framing, audience definition, and the core strategic language that guides the rest of the work.",
+  },
+  {
+    number: "02",
+    title: "Campaign Development",
+    copy: "Campaign concepts, launch systems, copy direction, creative territories, and the structure that keeps channels moving together.",
+  },
+  {
+    number: "03",
+    title: "Identity and Design Systems",
+    copy: "Visual identities, event look-and-feels, presentation systems, toolkits, signage direction, and adaptable campaign assets.",
+  },
+  {
+    number: "04",
+    title: "Content and Production",
+    copy: "Photography, video, interviews, editorial-style storytelling, social content, and rollout assets built to travel across formats.",
+  },
+  {
+    number: "05",
+    title: "Community-Facing Messaging",
+    copy: "Stakeholder decks, public copy, partner toolkits, email storytelling, event language, and plain-language communications.",
+  },
+  {
+    number: "06",
+    title: "Launch Support",
+    copy: "We help the campaign hold together through launch day and beyond, with sequencing, follow-through, and post-launch content planning.",
+  },
+];
+---
+
+<Layout title={page.data.seoTitle} description={page.data.seoDescription}>
+  <PageHero eyebrow={page.data.eyebrow} title={page.data.title} intro={page.data.intro} />
+
+  <section class="mx-auto grid max-w-[1440px] gap-6 px-6 py-12 md:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:px-12 lg:py-14">
+    <div class="content-panel prose-content p-5 md:p-6">
+      <Content />
+    </div>
+
+    <div class="grid gap-3 md:grid-cols-2">
+      {
+        services.map((service) => (
+          <div class="content-panel p-5 md:p-6">
+            <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-[#ff6b4a]">{service.number}</p>
+            <h2 class="mt-3 font-bebas text-[31px] font-bold leading-[0.98] tracking-[-0.05em] text-black">
+              {service.title}
+            </h2>
+            <p class="mt-3 font-mono text-[13px] leading-[1.85] text-black/62">{service.copy}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <CTA
+    eyebrow="Need the whole mix?"
+    title="We can lead the strategy, the creative, or the full rollout when the work needs all three."
+    intro="Some partners bring us in early for positioning and campaign architecture. Others need execution support once the strategy is already clear. We can meet either moment."
+  />
+</Layout>

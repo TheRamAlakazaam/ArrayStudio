@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import CTA from "../../components/CTA.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <article class="mx-auto max-w-[900px] px-6 py-16 md:px-10 lg:py-20">
+    <p class="font-mono text-[11px] uppercase tracking-[0.28em] text-[#ff6b4a]">{post.data.category}</p>
+    <h1 class="mt-5 max-w-[12ch] font-bebas text-[clamp(48px,8vw,96px)] font-extrabold leading-[0.92] tracking-[-0.06em] text-black">
+      {post.data.title}
+    </h1>
+    <p class="mt-6 font-mono text-[12px] uppercase tracking-[0.18em] text-black/42">
+      {post.data.publishDate.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })}
+      {" / "}
+      {post.data.author}
+    </p>
+
+    <div class="prose-content mt-10 rounded-[34px] border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(17,28,36,0.05)] md:p-8">
+      <Content />
+    </div>
+  </article>
+
+  <CTA
+    eyebrow="Want this level of thinking applied to your work?"
+    title="Bring the strategy conversation upstream before the launch assets start getting made."
+    intro="That is usually where the biggest lift happens."
+  />
+</Layout>
